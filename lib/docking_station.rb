@@ -1,36 +1,14 @@
+require_relative 'bike_container'
+
 class DockingStation
 
-DEFAULT_CAPACITY= 10
+  include BikeContainer
 
 	def initialize(options = {})
-    @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
-		@bikes = []
+    # self.capacity is calling the capacity=() method
+    # (note the equals sign) defined in BikeContainer
+    # capacity (the second argument to fetch()) is calling
+    # the capacity() method in BikeContainer
+    self.capacity = options.fetch(:capacity, capacity)
 	end
-
-
-	def bikecount
-		@bikes.count
-	end
-
-	def dock(bike)
-    #If the capacity is reached, raise an exception
-    raise "Station is full" if full?
-    @bikes << bike
-	end
-
-  def release(bike)
-    @bikes.delete(bike)
-  end
-
-  def full?
-    bikecount == @capacity 
-  end
-
-  def available_bikes
-    #Syntax of .reject method is array.reject {|obj| block}
-    #This will return elements for which given block returns false
-    @bikes.reject {|bike| bike.broken?}
-  end
-
-
 end	
