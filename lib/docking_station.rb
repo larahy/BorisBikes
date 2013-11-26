@@ -13,7 +13,9 @@ DEFAULT_CAPACITY= 10
 	end
 
 	def dock(bike)
-	@bikes << bike
+    #If the capacity is reached, raise an exception
+    raise "Station is full" if full?
+    @bikes << bike
 	end
 
   def release(bike)
@@ -23,6 +25,6 @@ DEFAULT_CAPACITY= 10
   def full?
     bikecount == @capacity 
   end
-  
+
 
 end	
