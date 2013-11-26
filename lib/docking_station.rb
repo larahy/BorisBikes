@@ -26,5 +26,11 @@ DEFAULT_CAPACITY= 10
     bikecount == @capacity 
   end
 
+  def available_bikes
+    #Syntax of .reject method is array.reject {|obj| block}
+    #This will return elements for which given block returns false
+    @bikes.reject {|bike| bike.broken?}
+  end
+
 
 end	
