@@ -6,13 +6,14 @@ module BikeContainer
     @bikes ||= []
   end
 
-  def capacity
-    @capacity ||=DEFAULT_CAPACITY
-  end
+  attr_accessor :capacity
+  # def capacity
+  #   @capacity 
+  # end
 
-  def capacity=(value)
-    @capacity = value
-  end
+  # def capacity=(value)
+  #   @capacity = value
+  # end
 
 
   def bikecount
@@ -28,7 +29,7 @@ module BikeContainer
   end
 
   def dock(bike)
-    raise "Station is full" if full?
+    raise "Yikes, no room at the inn." if full?
     bikes << bike
   end
 

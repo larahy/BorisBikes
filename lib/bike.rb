@@ -3,24 +3,20 @@
 class Bike
 
 	def initialize
-	fix
+	 fix
 	end
 
-  	def break
+  def break
   	@broken = true
  	end
 
  	def fix
- 	@broken = false
+ 	  @broken = false
  	end
 
-  	def broken?
+  def broken?
   	@broken 
-  	end
+  end
 
   
 end
-
-
-
-# bike = Bike.new("working") 
