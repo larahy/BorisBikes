@@ -29,4 +29,10 @@ describe Van do
     van.unload_to(garage, broken_bike)
     expect(garage.bikecount).to eq(1)
   end
+
+
+   it 'should not accept bike when it is full' do
+    10.times { van.load_from(station, broken_bike) }
+    expect(lambda { van.dock(bike) }).to raise_error(RuntimeError)
+  end
 end

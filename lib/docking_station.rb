@@ -12,9 +12,4 @@ class DockingStation
     self.capacity = options.fetch(:capacity, capacity)
 	end
 
-  # def fix
-  #   if DockingStation.new.broken_bikes.count >= 1
-  #   else
-  #   end
-  # end
 end	
