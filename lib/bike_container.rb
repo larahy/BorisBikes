@@ -10,13 +10,12 @@ module BikeContainer
     @capacity ||= DEFAULT_CAPACITY
   end
 
-  def capacity=(value)
-    @capacity = value
-  end
-
-
   def bikecount
     bikes.count
+  end
+
+  def capacity=(value)
+    @capacity = value
   end
 
   def release(bike)
