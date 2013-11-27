@@ -13,14 +13,14 @@ class Van
     station.broken_bikes.count >= 1
   end
 
-  def load_from(station, broken_bikes)
-    station.release(broken_bikes)
-    self.dock(broken_bikes)
+  def load_from(container, borisbike)
+    container.release(borisbike)
+    self.dock(borisbike)
   end
 
-  def unload_to(garage, broken_bikes)
-    self.release(broken_bikes)
-    garage.dock(broken_bikes)
+  def unload_to(container, borisbike)
+    self.release(borisbike)
+    container.dock(borisbike)
   end
 
 end 
