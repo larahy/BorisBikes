@@ -3,7 +3,7 @@ require_relative '../lib/van'
 describe Van do    
   
   let (:van) { Van.new }
-  let (:broken_bike) { Bike.new.break }
+  let (:boris_bike) { Bike.new.break }
   let (:bike) {Bike.new}
   let (:station) {DockingStation.new(:capacity => 20)}
   let (:garage) {Garage.new}
@@ -13,26 +13,27 @@ describe Van do
   end
 
   it 'should know when there are broken bikes at the station' do
-    station.dock(broken_bike)
+    station.dock(boris_bike)
     expect(van.collect_from(station)).to be_true
   end
 
+
   it 'should load broken bikes from station' do
-    station.dock(broken_bike)
-    van.load_from(station, broken_bike)
+    station.dock(boris_bike)
+    van.load_from(station, boris_bike)
     expect(van.collect_from(station)).to be_false
   end
 
   it 'should unload broken bikes at the garage' do
-    station.dock(broken_bike)
-    van.load_from(station, broken_bike)
-    van.unload_to(garage, broken_bike)
+    station.dock(boris_bike)
+    van.load_from(station, boris_bike)
+    van.unload_to(garage, boris_bike)
     expect(garage.bikecount).to eq(1)
   end
 
 
    it 'should not accept bike when it is full' do
-    10.times { van.load_from(station, broken_bike) }
+    10.times { van.load_from(station, boris_bike) }
     expect(lambda { van.dock(bike) }).to raise_error(RuntimeError)
   end
 end
