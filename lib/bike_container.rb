@@ -6,14 +6,13 @@ module BikeContainer
     @bikes ||= []
   end
 
-  attr_accessor :capacity
-  # def capacity
-  #   @capacity 
-  # end
+  def capacity
+    @capacity ||= DEFAULT_CAPACITY
+  end
 
-  # def capacity=(value)
-  #   @capacity = value
-  # end
+  def capacity=(value)
+    @capacity = value
+  end
 
 
   def bikecount
@@ -21,11 +20,17 @@ module BikeContainer
   end
 
   def release(bike)
-    bikes.delete(bike)
+    bikes.delete_if do |x| 
+      x == bike 
+    end  
   end
 
   def full?
     bikecount == capacity
+  end
+
+  def empty?
+    bikecount == 0
   end
 
   def dock(bike)
@@ -37,6 +42,10 @@ module BikeContainer
     #Syntax of .reject method is array.reject {|obj| block}
     #This will return elements for which given block returns false
     bikes.reject {|bike| bike.broken?}
+  end
+
+  def broken_bikes
+    bikes.select {|bike| bike.broken?}
   end
 
 end
