@@ -1,8 +1,9 @@
 require_relative 'bike_container'
 require_relative 'bike'
+require_relative 'docking_station'
 require_relative 'van'
 
-class Garage 
+class User 
   include BikeContainer
 
   def initialize(options = {})
@@ -13,9 +14,19 @@ class Garage
     self.capacity = options.fetch(:capacity, capacity)
   end
 
-  def dock(borisbike)
-    borisbike.fix
-    super(borisbike)
+  def load_from(container, borisbike)
+    container.release(borisbike)
+    self.dock(borisbike)
+  end
+
+  def unload_to(container, borisbike)
+    self.release(borisbike)
+    container.dock(borisbike)
+  end
+
+  def crash(bike)
+    bike.break
   end
 
 end 
+
