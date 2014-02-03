@@ -3,7 +3,7 @@ require_relative '../lib/bike'
 
 describe DockingStation do
 
-  let (:station) {DockingStation.new}
+  let (:station) {DockingStation.new(:capacity => 10)}
   let (:bike) {Bike.new}
 
   it 'should allow setting default capacity on intialising' do

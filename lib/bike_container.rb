@@ -1,6 +1,6 @@
 module BikeContainer
  
-  DEFAULT_CAPACITY = 10
+  DEFAULT_CAPACITY = 1
 
   def bikes
     @bikes ||= []
@@ -34,7 +34,7 @@ module BikeContainer
 
   def dock(bike)
     raise "Yikes, no room at the inn." if full?
-    bikes << bike
+    bikes << bike 
   end
 
   def available_bikes
@@ -45,6 +45,21 @@ module BikeContainer
 
   def broken_bikes
     bikes.select {|bike| bike.broken?}
+  end
+
+  def load_from(container, borisbike)
+    move_bike_across(container, self, borisbike)
+  end
+
+  def unload_to(container, borisbike)
+    move_bike_across(self, container, borisbike)
+  end
+
+private
+  
+  def move_bike_across(source, dest, bike)
+    source.release(bike)
+    dest.dock(bike)
   end
 
 end

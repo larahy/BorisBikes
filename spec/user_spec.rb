@@ -5,9 +5,9 @@ describe User do
   let (:bike) {Bike.new}
   let (:bike2) {Bike.new}
   let (:bike3) {Bike.new}
-  let (:user) {User.new(:capacity => 1)}
-  let (:user2) {User.new(:capacity => 1)}
-  let (:station) {DockingStation.new}
+  let (:user) {User.new}
+  let (:user2) {User.new}
+  let (:station) {DockingStation.new(:capacity => 10)}
 
   it 'should not be able to rent more than one bike' do
     station.dock(bike)

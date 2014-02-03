@@ -1,8 +1,8 @@
 require_relative '../lib/garage'
 
 describe Garage do 
-  let (:garage) {Garage.new}
-  let (:van) { Van.new }
+  let (:garage) {Garage.new(:capacity => 10)}
+  let (:van) { Van.new(:capacity => 10)}
   let (:broken_bike) { Bike.new.break }
   let (:bike) {Bike.new}
   let (:station) {DockingStation.new(:capacity => 20)}

@@ -5,6 +5,11 @@ class Bike
 	 fix
 	end
 
+  def 
+  end
+    
+  end
+
   def break
   	@broken = true
     self
@@ -12,6 +17,7 @@ class Bike
 
  	def fix
  	  @broken = false
+    self
  	end
 
   def broken?
@@ -20,3 +26,6 @@ class Bike
 
   
 end
+
+
+# Bike.new.break.fix

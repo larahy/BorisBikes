@@ -14,16 +14,6 @@ class User
     self.capacity = options.fetch(:capacity, capacity)
   end
 
-  def load_from(container, borisbike)
-    container.release(borisbike)
-    self.dock(borisbike)
-  end
-
-  def unload_to(container, borisbike)
-    self.release(borisbike)
-    container.dock(borisbike)
-  end
-
   def crash(bike)
     bike.break
   end
