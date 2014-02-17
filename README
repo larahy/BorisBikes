@@ -1,1 +1,6 @@
-Bulding an application which shows if bicycles in London are rentable or need maintainence
+BORIS BIKES -- Week 3 CHALLENGE -- set by @shadchnev
+
+Goal was to introduce us to Object-Oriented Programming and Object-Oriented Design.
+
+We were asked to create a simple system for managing Boris bikes in London. The system should keep track of a number of docking stations and the bikes, allow users to rent the bikes and return them. Broken bikes were to be made unavailable for rental, and could be taken to a garage for repairs.
+
